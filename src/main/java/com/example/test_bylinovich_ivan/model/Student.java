@@ -15,6 +15,7 @@ import java.util.Set;
 public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private String lastName;
