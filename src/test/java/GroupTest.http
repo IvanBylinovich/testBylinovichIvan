@@ -7,15 +7,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8080/groups
-Content-Type: application/json
 
-{
-  "id": 0,
-  "name": "c-54"
-}
-
-###
 GET http://localhost:8080/groups?id=0
 Content-Type: application/json
 

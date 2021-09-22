@@ -17,7 +17,5 @@ public class GroupUni {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @OneToMany
-    private Set<Student> groupStudents;
 
 }
