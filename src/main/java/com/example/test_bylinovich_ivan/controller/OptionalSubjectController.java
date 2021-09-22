@@ -18,7 +18,7 @@ public class OptionalSubjectController {
     OptionalSubjectRepository optionalSubjectRepository;
 
     @PostMapping()
-    public ResponseEntity<?> addIdCard(@RequestBody OptionalSubject optionalSubject){
+    public ResponseEntity<?> addOptionalSubject(@RequestBody OptionalSubject optionalSubject){
         try{
             return new ResponseEntity<>(optionalSubjectRepository.save(optionalSubject), HttpStatus.CREATED);
         }catch(RuntimeException e){
@@ -27,7 +27,7 @@ public class OptionalSubjectController {
     }
 
     @PutMapping()
-    public ResponseEntity<?> updateIdCard(@RequestBody OptionalSubject optionalSubject){
+    public ResponseEntity<?> updateOptionalSubject(@RequestBody OptionalSubject optionalSubject){
         try{
             return new ResponseEntity<>(optionalSubjectRepository.save(optionalSubject), HttpStatus.ACCEPTED);
         }catch(RuntimeException e){
@@ -36,7 +36,7 @@ public class OptionalSubjectController {
     }
 
     @GetMapping()
-    public ResponseEntity<?> findIdCardById(long id){
+    public ResponseEntity<?> findOptionalSubjectById(long id){
         Optional<OptionalSubject> optionalSubject = optionalSubjectRepository.findById(id);
         if(optionalSubject.isPresent()){
             return new ResponseEntity<>(optionalSubject.get(), HttpStatus.OK);
@@ -45,7 +45,7 @@ public class OptionalSubjectController {
     }
 
     @PostMapping("/{subjectId}")
-    public ResponseEntity<?> upIdCardDateById(long subjectId, String name){
+    public ResponseEntity<?> upOptionalSubjectDateById(long subjectId, String name){
         Optional<OptionalSubject> optionalSubject = optionalSubjectRepository.findById(subjectId);
 
         if(optionalSubject.isPresent()){

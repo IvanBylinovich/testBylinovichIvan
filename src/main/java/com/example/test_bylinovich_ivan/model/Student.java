@@ -20,7 +20,7 @@ public class Student {
     private String name;
     private String lastName;
     @ManyToOne
-    private Group group;
+    private GroupUni groupUni;
     @ManyToMany
-    private Set<OptionalSubject> optionalSubjectSet;
+    private Set<OptionalSubject> optionalSubject;
 }

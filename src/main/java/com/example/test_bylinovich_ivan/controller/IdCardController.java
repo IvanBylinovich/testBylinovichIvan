@@ -1,10 +1,8 @@
 package com.example.test_bylinovich_ivan.controller;
 
-import com.example.test_bylinovich_ivan.model.Group;
 import com.example.test_bylinovich_ivan.model.IdCard;
 import com.example.test_bylinovich_ivan.model.Student;
 import com.example.test_bylinovich_ivan.repository.IdCardRepository;
-import com.example.test_bylinovich_ivan.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

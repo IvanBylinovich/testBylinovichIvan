@@ -1,13 +1,12 @@
 package com.example.test_bylinovich_ivan.controller;
 
-import com.example.test_bylinovich_ivan.model.Group;
+import com.example.test_bylinovich_ivan.model.GroupUni;
 import com.example.test_bylinovich_ivan.repository.GroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -18,18 +17,18 @@ public class GroupController {
     GroupRepository groupRepository;
 
     @PostMapping()
-    public ResponseEntity<?> addGroup(@RequestBody Group group){
+    public ResponseEntity<?> addGroup(@RequestBody GroupUni groupUni){
         try{
-            return new ResponseEntity<>(groupRepository.save(group), HttpStatus.CREATED);
+            return new ResponseEntity<>(groupRepository.save(groupUni), HttpStatus.CREATED);
         }catch(RuntimeException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping()
-    public ResponseEntity<?> updateGroup(@RequestBody Group group){
+    public ResponseEntity<?> updateGroup(@RequestBody GroupUni groupUni){
         try{
-            return new ResponseEntity<>(groupRepository.save(group), HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(groupRepository.save(groupUni), HttpStatus.ACCEPTED);
         }catch(RuntimeException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -37,7 +36,7 @@ public class GroupController {
 
     @GetMapping()
     public ResponseEntity<?> findGroupById(long id){
-        Optional<Group> pet = groupRepository.findById(id);
+        Optional<GroupUni> pet = groupRepository.findById(id);
         if(pet.isPresent()){
             return new ResponseEntity<>(pet.get(), HttpStatus.OK);
         }
@@ -46,7 +45,7 @@ public class GroupController {
 
     @PostMapping("/{groupId}")
     public ResponseEntity<?> upGroupDateById(long groupId, String name){
-        Optional<Group> group = groupRepository.findById(groupId);
+        Optional<GroupUni> group = groupRepository.findById(groupId);
 
         if(group.isPresent()){
             group.get().setName(name);
